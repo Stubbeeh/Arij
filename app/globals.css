@@ -8,6 +8,19 @@
   --c-accent: #ef8354;
   --c-surface: #f4f4f5;
   --radius: 8px;
+  --drag-bg: rgb(255 255 255 / 45%);
+  color-scheme: light;
+}
+
+/* Dark theme swaps the surface/text roles of the palette. */
+:root[data-theme="dark"] {
+  --c-dark: #f4f4f5;
+  --c-white: #2d3142;
+  --c-slate: #bfc0c0;
+  --c-silver: #4f5d75;
+  --c-surface: #1d202d;
+  --drag-bg: rgb(0 0 0 / 25%);
+  color-scheme: dark;
 }
 
 * {
@@ -43,8 +56,8 @@ h3 {
   align-items: center;
   gap: 16px;
   padding: 12px 24px;
-  background: var(--c-dark);
-  color: var(--c-white);
+  background: #2d3142;
+  color: #ffffff;
 }
 
 .topbar .brand {
@@ -121,7 +134,7 @@ button:hover {
 button.primary {
   background: var(--c-accent);
   border-color: var(--c-accent);
-  color: var(--c-white);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -208,21 +221,22 @@ label.field > textarea {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  background: var(--c-slate);
-  color: var(--c-white);
+  background: #4f5d75;
+  color: #ffffff;
 }
 
 .badge.epic {
-  background: var(--c-dark);
+  background: #2d3142;
+  border: 1px solid #bfc0c0;
 }
 
 .badge.story {
-  background: var(--c-slate);
+  background: #4f5d75;
 }
 
 .badge.task {
-  background: var(--c-silver);
-  color: var(--c-dark);
+  background: #bfc0c0;
+  color: #2d3142;
 }
 
 .badge.bug {
@@ -336,7 +350,7 @@ tr.clickable:hover {
 }
 
 .zone.dragging {
-  background: rgb(255 255 255 / 45%);
+  background: var(--drag-bg);
   border: 2px dashed var(--c-slate);
   min-height: 72px;
 }
