@@ -75,6 +75,20 @@ docker compose down --volumes
 | `npm run build` | Create a production build |
 | `npm run start` | Start the production server (run `npm run build` first) |
 | `npm run typecheck` | Run the TypeScript compiler without emitting files |
+| `npm run mcp` | Start the MCP server over stdio (needs the app running) |
+
+## MCP server
+
+`mcp/server.ts` lets agents work with Arij through the REST API, so the app must be running (`npm run dev`).
+
+| Variable | Description | Default |
+| --- | --- | --- |
+| `ARIJ_URL` | Base URL of the running app | `http://localhost:3000` |
+| `ARIJ_USER` | Collaborator name of the current user, used as ticket reporter | unset (agent asks) |
+
+Tools: `whoami`, `list_projects`, `get_project`, `list_tickets`, `get_ticket`, `create_ticket`, `update_ticket`. Statuses are given by name and parents by ticket key. There are no delete tools.
+
+In VS Code, [.vscode/mcp.json](.vscode/mcp.json) registers the server and prompts for `ARIJ_USER`. For other clients, run `npm run --silent mcp` from this directory with the variables above, for example with `npx @modelcontextprotocol/inspector npm run --silent mcp`. `npx tsx mcp/smoke.ts` exercises every tool against a running app that has a project and a collaborator.
 
 ## Data and deployment notes
 
