@@ -88,7 +88,7 @@ docker compose down --volumes
 
 Tools: `whoami`, `list_projects`, `get_project`, `list_tickets`, `get_ticket`, `create_ticket`, `update_ticket`. Statuses are given by name and parents by ticket key. There are no delete tools.
 
-In VS Code, [.vscode/mcp.json](.vscode/mcp.json) registers the server and prompts for `ARIJ_USER`. For other clients, run `npm run --silent mcp` from this directory with the variables above, for example with `npx @modelcontextprotocol/inspector npm run --silent mcp`. `npx tsx mcp/smoke.ts` exercises every tool against a running app that has a project and a collaborator.
+For Copilot CLI / Agent Host, [.mcp.json](.mcp.json) registers it and reads `ARIJ_USER` from the environment, so export it before starting the agent. For other clients, run `npm run --silent mcp` from this directory with the variables above, for example with `npx @modelcontextprotocol/inspector npm run --silent mcp`. `npx tsx mcp/smoke.ts` exercises every tool against a running app that has a project and a collaborator.
 
 ## Data and deployment notes
 
